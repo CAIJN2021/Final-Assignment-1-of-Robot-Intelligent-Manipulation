@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!-- 
+  目标盒子 (Target Box)
+  用于视觉伺服抓取任务的放置目标
+  盒子内部尺寸: 10cm x 10cm x 5cm (足够放入5cm的立方体)
+  壁厚: 0.5cm
+-->
+<robot name="target_box">
+  
+  <!-- 底板 -->
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    
+    <!-- 底板 -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.0025"/>
+      <geometry>
+        <box size="0.11 0.11 0.005"/>
+      </geometry>
+      <material name="box_color">
+        <color rgba="0.4 0.6 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0025"/>
+      <geometry>
+        <box size="0.11 0.11 0.005"/>
+      </geometry>
+    </collision>
+    
+    <!-- 前墙 (X+) -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0525 0 0.03"/>
+      <geometry>
+        <box size="0.005 0.11 0.05"/>
+      </geometry>
+      <material name="box_color"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0525 0 0.03"/>
+      <geometry>
+        <box size="0.005 0.11 0.05"/>
+      </geometry>
+    </collision>
+    
+    <!-- 后墙 (X-) -->
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.0525 0 0.03"/>
+      <geometry>
+        <box size="0.005 0.11 0.05"/>
+      </geometry>
+      <material name="box_color"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0525 0 0.03"/>
+      <geometry>
+        <box size="0.005 0.11 0.05"/>
+      </geometry>
+    </collision>
+    
+    <!-- 左墙 (Y+) -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0.0525 0.03"/>
+      <geometry>
+        <box size="0.1 0.005 0.05"/>
+      </geometry>
+      <material name="box_color"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.0525 0.03"/>
+      <geometry>
+        <box size="0.1 0.005 0.05"/>
+      </geometry>
+    </collision>
+    
+    <!-- 右墙 (Y-) -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 -0.0525 0.03"/>
+      <geometry>
+        <box size="0.1 0.005 0.05"/>
+      </geometry>
+      <material name="box_color"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 -0.0525 0.03"/>
+      <geometry>
+        <box size="0.1 0.005 0.05"/>
+      </geometry>
+    </collision>
+    
+  </link>
+</robot>
+
